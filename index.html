@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jom Eja! Latihan Ejaan Tahun 2 & 3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EEF4FB; --sheet:#FFFFFF; --ink:#1E2A5A; --muted:#58648C; --line:#CFDCEF;
+  --red:#E0453A; --leaf:#1F9A5E; --sky:#2F7BD0;
+  --ok-bg:#E2F5EA; --bad-bg:#FDE6E3;
+  --b1:#FFD45C; --b2:#86CCFF; --b3:#92E0AC; --b4:#FFAFA6; --btxt:#1E2A5A;
+  --gap:#FFF2C2;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#131A33; --sheet:#1C2447; --ink:#EEF2FF; --muted:#A8B2D8; --line:#334075;
+    --ok-bg:#163A2A; --bad-bg:#4A2220; --gap:#3B3520;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#131A33; --sheet:#1C2447; --ink:#EEF2FF; --muted:#A8B2D8; --line:#334075;
+  --ok-bg:#163A2A; --bad-bg:#4A2220; --gap:#3B3520;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Andika","Trebuchet MS","Verdana",sans-serif;
+  font-size:18px; line-height:1.5;
+  -webkit-tap-highlight-color:transparent;
+}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
+.wrap{max-width:860px;margin:0 auto;padding:16px 16px 48px}
+
+/* header */
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:6px;background:none;border:0;padding:4px 0}
+.blk{display:inline-block;font-weight:700;color:var(--btxt);border-radius:10px;padding:.05em .32em;
+  box-shadow:0 4px 0 rgba(30,42,90,.25);line-height:1.25}
+.brand .blk{font-size:30px}
+.brand .blk:nth-child(1){background:var(--b1);transform:rotate(-4deg)}
+.brand .blk:nth-child(2){background:var(--b2);transform:rotate(3deg)}
+.brand .blk:nth-child(3){background:var(--b3);transform:rotate(-2deg)}
+.brand .bang{font-size:34px;font-weight:700;color:var(--red);margin-left:2px}
+.tools{display:flex;gap:8px;align-items:center}
+.pill{background:var(--sheet);border:2px solid var(--line);border-radius:999px;padding:6px 14px;font-weight:700;display:inline-flex;gap:6px;align-items:center}
+
+/* exercise-book sheet */
+.sheet{background:var(--sheet);border-radius:18px;border:2px solid var(--line);
+  position:relative;padding:22px 22px 22px 40px;margin-top:16px}
+.sheet::before{content:"";position:absolute;left:22px;top:0;bottom:0;width:2px;background:var(--red);opacity:.55}
+h1{font-size:28px;line-height:1.2;margin:0 0 6px}
+h2{font-size:22px;margin:0 0 8px}
+p{margin:0 0 10px;max-width:62ch}
+.muted{color:var(--muted)}
+
+.years{display:inline-flex;background:var(--paper);border-radius:14px;padding:5px;gap:4px;margin:10px 0 4px}
+.years button{border:0;background:none;padding:10px 20px;border-radius:10px;font-weight:700;font-size:18px}
+.years button[aria-pressed="true"]{background:var(--ink);color:var(--sheet)}
+
+.topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:16px}
+.topic{text-align:left;background:var(--sheet);border:2px solid var(--line);border-radius:16px;padding:16px;
+  display:flex;flex-direction:column;gap:8px;transition:transform .12s, border-color .12s}
+.topic:hover{border-color:var(--sky);transform:translateY(-2px)}
+.topic .name{font-weight:700;font-size:19px;line-height:1.25}
+.topic .eg{display:flex;flex-wrap:wrap;gap:4px}
+.mini{font-size:15px;font-weight:700;color:var(--btxt);border-radius:7px;padding:1px 7px}
+.stars{color:#E9A800;letter-spacing:2px;font-size:18px}
+.stars .off{color:var(--line)}
+
+.rule{background:var(--paper);border-radius:14px;padding:14px 16px;margin:12px 0 18px}
+.acts{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.act{display:flex;gap:12px;align-items:center;text-align:left;background:var(--sheet);border:2px solid var(--line);
+  border-radius:16px;padding:14px}
+.act:hover{border-color:var(--sky)}
+.act .ic{font-size:34px;line-height:1}
+.act b{display:block;font-size:18px}
+.act small{color:var(--muted);font-size:15px}
+
+.back{background:none;border:0;padding:6px 0;font-weight:700;color:var(--sky);font-size:17px}
+
+/* game */
+.bar{display:flex;align-items:center;gap:12px;margin:6px 0 16px}
+.track{flex:1;height:12px;background:var(--paper);border-radius:99px;overflow:hidden}
+.fill{height:100%;background:var(--leaf);border-radius:99px;transition:width .3s}
+.count{font-weight:700;white-space:nowrap}
+.q{text-align:center}
+.emo{font-size:72px;line-height:1.1;margin:4px 0}
+.prompt{font-size:20px;font-weight:700;margin:6px auto 14px;max-width:none}
+.sentence{font-size:19px;color:var(--muted);margin:0 auto 14px;max-width:46ch}
+.sentence .hole{display:inline-block;min-width:4ch;border-bottom:3px solid var(--red);color:transparent}
+.big{font-size:clamp(40px,10vw,68px);font-weight:700;letter-spacing:.02em;line-height:1.3;word-break:break-word;
+  text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:3px;text-underline-offset:.14em;text-decoration-skip-ink:none}
+.gapbox{display:inline-block;min-width:1.4em;background:var(--gap);border:3px dashed var(--sky);border-radius:12px;
+  text-decoration:none;color:var(--sky);margin:0 .06em;line-height:1.1;padding:0 .1em;vertical-align:.05em}
+.gapbox.filled{border-style:solid;color:var(--ink)}
+
+.syls{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:14px 0}
+.syl{font-size:clamp(26px,6vw,38px);border:0;min-width:64px;padding:6px 16px}
+.syl:active{transform:translateY(3px);box-shadow:0 1px 0 rgba(30,42,90,.25)}
+.syl.sep{background:var(--sheet)!important;border:2px dashed var(--muted);box-shadow:none;color:var(--ink)}
+.c0{background:var(--b1)}.c1{background:var(--b2)}.c2{background:var(--b3)}.c3{background:var(--b4)}
+
+.slots{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;min-height:70px;margin:8px 0 6px;padding:10px;
+  border-bottom:3px solid var(--red)}
+.slot{min-width:64px;height:58px;border:3px dashed var(--line);border-radius:12px}
+.tiles{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:16px}
+.tile[disabled]{opacity:.2;cursor:default;box-shadow:none}
+
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-top:18px}
+.opt{background:var(--sheet);border:3px solid var(--line);border-radius:16px;padding:14px 10px;font-size:clamp(22px,5vw,30px);font-weight:700}
+.opt:hover:not([disabled]){border-color:var(--sky)}
+.opt.right{background:var(--ok-bg);border-color:var(--leaf)}
+.opt.wrong{background:var(--bad-bg);border-color:var(--red)}
+.opt[disabled]{cursor:default}
+.opt small{display:block;font-size:15px;font-weight:400;color:var(--muted)}
+
+.say{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:12px 22px;font-weight:700;font-size:19px;
+  background:var(--sky);color:#fff;box-shadow:0 4px 0 #1d5799}
+.say.alt{background:var(--sheet);color:var(--ink);border:2px solid var(--line);box-shadow:none}
+.row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center}
+
+.typein{font:inherit;font-size:clamp(28px,7vw,40px);font-weight:700;text-align:center;width:100%;max-width:440px;
+  padding:10px 14px;border:3px solid var(--line);border-radius:16px;background:var(--sheet);color:var(--ink);margin:16px 0 12px}
+.typein:focus{border-color:var(--sky);outline:none}
+
+.fb{margin-top:18px;padding:14px 16px;border-radius:16px;text-align:center}
+.fb.ok{background:var(--ok-bg)}
+.fb.no{background:var(--bad-bg)}
+.fb .h{font-size:24px;font-weight:700}
+.fb .ans{font-size:30px;font-weight:700}
+.diff span{border-radius:4px}
+.diff .x{background:var(--red);color:#fff;padding:0 2px}
+
+.go{border:0;border-radius:14px;padding:14px 28px;font-weight:700;font-size:20px;background:var(--leaf);color:#fff;
+  box-shadow:0 4px 0 #136b40;margin-top:14px}
+.go.ghost{background:var(--sheet);color:var(--ink);border:2px solid var(--line);box-shadow:none}
+
+.nope{margin-top:10px;font-size:16px;color:var(--muted)}
+.nope s{color:var(--red);text-decoration-thickness:2px}
+
+.result{text-align:center;padding:10px 0}
+.result .stars{font-size:64px;letter-spacing:8px}
+.note{font-size:15px;color:var(--muted);margin-top:22px;max-width:70ch}
+
+.confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.confetti span{position:absolute;top:-40px;font-size:28px;animation:fall 2.4s ease-in forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){
+  .confetti{display:none}
+  .topic,.fill{transition:none}
+}
+@media (max-width:520px){
+  .sheet{padding:18px 14px 18px 30px}
+  .sheet::before{left:16px}
+  .brand .blk{font-size:24px}
+  .emo{font-size:58px}
+}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<div class="confetti" id="confetti" aria-hidden="true"></div>
+
+<script>
+/* ===================== DATA ===================== */
+// W(token suku kata, emoji, ayat contoh, fokus, ejaan salah 1, ejaan salah 2, titik sambung utk kata majmuk mantap)
+// "_" = jarak (kata majmuk), "-" = tanda sempang (kata ganda)
+const W=(t,e,s,f,x1,x2,j)=>({t,e,s,f,x:[x1,x2],j});
+
+const TOPICS=[
+{id:'sk',year:2,name:'Suku kata terbuka & tertutup',mode:'rand',
+ rule:'Perkataan dibina daripada suku kata. Suku kata <b>terbuka</b> berakhir dengan vokal (<b>bu</b>-ku). Suku kata <b>tertutup</b> berakhir dengan konsonan (ru-<b>mah</b>).',
+ words:[
+ W('ru mah','🏠','Rumah saya dekat sekolah.',null,'rumh','rumoh'),
+ W('ku cing','🐱','Kucing itu tidur di atas tikar.',null,'kuceng','kucin'),
+ W('se ko lah','🏫','Ali pergi ke sekolah.',null,'sekola','sekulah'),
+ W('ke re ta','🚗','Ayah membasuh kereta.',null,'kreta','kerata'),
+ W('i kan','🐟','Ikan berenang di dalam kolam.',null,'ikkan','ican'),
+ W('ban tal','🛏️','Bantal itu lembut.',null,'bantel','banthal'),
+ W('pen sel','✏️','Pensel saya patah.',null,'pensil','pensal'),
+ W('ja lan','🛣️','Jalan itu lurus.',null,'jalen','jallan'),
+ W('bo la','⚽','Mereka bermain bola.',null,'bolah','bula'),
+ W('ta ngan','✋','Basuh tangan sebelum makan.',null,'tangen','tagan'),
+ W('ka sut','👟','Kasut saya berwarna putih.',null,'kasot','kassut'),
+ W('bu ku','📘','Saya membaca buku cerita.',null,'boku','bukku')]},
+
+{id:'dif',year:2,name:'Diftong',mode:'f',pos:'end',opts:['ai','au','oi','ia','ua','ui'],
+ rule:'Diftong ialah dua vokal yang disebut <b>sekali gus dalam satu suku kata</b>: <b>ai</b> (pan-tai), <b>au</b> (pu-lau), <b>oi</b> (do-doi).',
+ words:[
+ W('pan tai','🏖️','Kami bermain pasir di pantai.','ai','pantay','pante'),
+ W('su ngai','🏞️','Air sungai itu jernih.','ai','sunggai','sungei'),
+ W('tu pai','🐿️','Tupai melompat dari pokok ke pokok.','ai','tupay','tupei'),
+ W('gu lai','🍛','Nenek memasak gulai ikan.','ai','gulay','gule'),
+ W('sam pai','🏁','Kami sampai di rumah pada waktu petang.','ai','sampe','sampay'),
+ W('pu lau','🏝️','Pulau itu dikelilingi laut.','au','pulao','pulaw'),
+ W('ker bau','🐃','Kerbau berendam di dalam lumpur.','au','kerbo','kerbaw'),
+ W('ha ri mau','🐯','Harimau ialah haiwan buas.','au','harimao','harimo'),
+ W('pi sau','🔪','Ibu memotong sayur dengan pisau.','au','piso','pisaw'),
+ W('li mau','🍊','Limau itu masam.','au','limo','limao'),
+ W('do doi','👶','Ibu menyanyikan lagu dodoi.','oi','dodoy','dodui'),
+ W('am boi','😮','Amboi, cantiknya baju kamu!','oi','amboy','ambui')]},
+
+{id:'vb',year:2,name:'Vokal berganding',mode:'f',pos:'any',opts:['ua','ia','io','ui','ai','au','oa'],
+ rule:'Vokal berganding ialah dua vokal yang duduk bersebelahan tetapi <b>disebut dalam suku kata berasingan</b>: bu-<b>a</b>h, ra-di-<b>o</b>, du-<b>i</b>t. Jangan tambah huruf w atau y di tengahnya.',
+ words:[
+ W('bu ah','🍎','Ali makan buah epal.','ua','buwah','bua'),
+ W('du a','✌️','Saya ada dua orang adik.','ua','duwa','dwa'),
+ W('bu a ya','🐊','Buaya berjemur di tebing sungai.','ua','buwaya','boaya'),
+ W('ra di o','📻','Datuk mendengar radio.','io','radiyo','redio'),
+ W('da un','🍃','Daun itu berwarna hijau.','au','dawun','daon'),
+ W('la ut','🌊','Ombak laut sangat besar.','au','lawut','laot'),
+ W('ka in','🧵','Ibu menjahit kain.','ai','kayin','kaen'),
+ W('ku ih','🍡','Nenek membuat kuih.','ui','kueh','kuweh'),
+ W('bi o la','🎻','Kakak bermain biola.','io','biyola','beola'),
+ W('du it','💰','Saya menyimpan duit di dalam tabung.','ui','duwit','doit'),
+ W('di am','🤫','Murid diam ketika guru bercakap.','ia','diyam','dim'),
+ W('ba ik','😊','Amin seorang budak yang baik.','ai','baek','bayik')]},
+
+{id:'dg',year:2,name:'Digraf',mode:'f',pos:'any',opts:['ng','ny','sy','kh','gh','n','s','k','g'],
+ rule:'Digraf ialah <b>dua huruf yang mewakili satu bunyi</b>: <b>ng</b> (bu-nga), <b>ny</b> (nya-muk), <b>sy</b> (syi-ling), <b>kh</b> (khe-mah), <b>gh</b> (lo-ghat).',
+ words:[
+ W('bu nga','🌸','Bunga mawar itu harum.','ng','buga','bungga'),
+ W('bu rung','🐦','Burung terbang di langit.','ng','burong','burun'),
+ W('nya muk','🦟','Nyamuk menggigit tangan saya.','ny','niamuk','namuk'),
+ W('mo nyet','🐒','Monyet suka makan pisang.','ny','moniet','monyit'),
+ W('nya nyi','🎤','Mari kita nyanyi bersama.','ny','nyanyii','nyayi'),
+ W('syi ling','🪙','Saya ada lima keping syiling.','sy','siling','shiling'),
+ W('syu kur','🙏','Syukur, adik sudah sembuh.','sy','shukur','sukur'),
+ W('khe mah','⛺','Pengakap mendirikan khemah.','kh','kemah','hemah'),
+ W('akh bar','📰','Ayah membaca akhbar.','kh','akbar','ahbar'),
+ W('lo ghat','🗣️','Loghat Kelantan sedap didengar.','gh','logat','loghot'),
+ W('magh rib','🌇','Kami solat maghrib bersama.','gh','magrib','marib')]},
+
+{id:'kb',year:2,name:'Konsonan bergabung',mode:'f',pos:'any',opts:['kl','tr','pl','dr','kr','gl','st','br','pr','ker','ter','pel','der','ber'],
+ rule:'Konsonan bergabung ialah <b>dua konsonan yang disebut bersama dalam satu suku kata</b>: <b>kl</b>i-nik, <b>tr</b>ak-tor, <b>pl</b>as-tik. Jangan tambah huruf e di tengahnya (bukan kelinik).',
+ words:[
+ W('kli nik','🏥','Adik dibawa ke klinik.','kl','kelinik','klinic'),
+ W('trak tor','🚜','Petani memandu traktor.','tr','teraktor','traktur'),
+ W('plas tik','🛍️','Kurangkan penggunaan beg plastik.','pl','pelastik','plastic'),
+ W('dra ma','🎭','Kami menonton drama di televisyen.','dr','derama','dramma'),
+ W('krim','🍰','Kek itu ada krim coklat.','kr','kerim','crim'),
+ W('glob','🌍','Cikgu menunjukkan glob kepada kami.','gl','gelob','glop'),
+ W('ste sen','🚉','Kami menunggu kereta api di stesen.','st','setesen','stesyen'),
+ W('ze bra','🦓','Zebra mempunyai jalur hitam dan putih.','br','zebera','zibra'),
+ W('pro gram','📺','Program itu sangat menarik.','pr','perogram','progrem'),
+ W('bro ko li','🥦','Brokoli ialah sayur berwarna hijau.','br','berokoli','brokkoli')]},
+
+{id:'aw',year:2,name:'Imbuhan awalan',mode:'f',pos:'start',opts:['me','mem','men','meny','meng','menge','ber','be','di','ter','te'],
+ rule:'Awalan ditambah di <b>hadapan</b> kata dasar. Awalan meN- berubah bentuk: <b>mem</b>baca, <b>me</b>nulis, <b>meny</b>apu, <b>meng</b>ayuh, <b>menge</b>cat. Awalan di- ditulis <b>rapat</b>: dimakan, bukan di makan.',
+ words:[
+ W('mem ba ca','📖','Saya suka membaca buku.','mem','menbaca','mebaca'),
+ W('me nu lis','✍️','Siti menulis surat.','me','mennulis','mentulis'),
+ W('me nya pu','🧹','Abang menyapu sampah.','meny','mensapu','menyyapu'),
+ W('me nge cat','🎨','Ayah mengecat pagar.','menge','mencat','mengcat'),
+ W('me ma sak','🍳','Ibu memasak nasi lemak.','me','mempasak','memmasak'),
+ W('me nga yuh','🚲','Pak Ali mengayuh basikal.','meng','mengkayuh','menkayuh'),
+ W('ber ma in','🤸','Kami bermain di padang.','ber','bermaen','brmain'),
+ W('ber la ri','🏃','Ali berlari dengan laju.','ber','belari','berrari'),
+ W('di ma kan','🍌','Pisang itu dimakan oleh monyet.','di','di makan','dimakkan'),
+ W('di tu lis','📝','Nama saya ditulis di papan putih.','di','di tulis','ditullis'),
+ W('ter ja tuh','🤕','Adik terjatuh dari basikal.','ter','trjatuh','terjattuh'),
+ W('ter se nyum','😄','Emak tersenyum gembira.','ter','trsenyum','tersenyom')]},
+
+{id:'ak',year:2,name:'Imbuhan akhiran',mode:'f',pos:'end',opts:['an','kan','kkan','i','ni','nan'],
+ rule:'Akhiran ditambah di <b>belakang</b> kata dasar: -an, -kan, -i. Jika kata dasar berakhir dengan huruf k, tulis dua k: letak + kan = <b>letakkan</b>.',
+ words:[
+ W('ma ka nan','🍱','Makanan itu sedap.','an','makannan','makan an'),
+ W('mi nu man','🥤','Minuman sejuk itu menyegarkan.','an','minumman','minum an'),
+ W('ma i nan','🧸','Adik ada banyak mainan.','an','mainnan','maenan'),
+ W('lu ki san','🖼️','Lukisan Aisyah sangat cantik.','an','lukissan','lukisen'),
+ W('le tak kan','📥','Letakkan beg di atas meja.','kan','letakan','letakkkan'),
+ W('ma suk kan','🗑️','Masukkan sampah ke dalam tong.','kan','masokan','masukkkan'),
+ W('be li kan','🛒','Tolong belikan saya roti.','kan','belikkan','beliekan'),
+ W('ma ni san','🍬','Jangan makan terlalu banyak manisan.','an','manissan','manisen'),
+ W('du du ki','🪑','Sila duduki kerusi masing-masing.','i','dudukki','duduky'),
+ W('tu ru ni','🪜','Turuni tangga dengan perlahan.','i','turunni','turuny')]},
+
+{id:'ap',year:3,name:'Imbuhan apitan',mode:'f',pos:'end',opts:['an','kan','aan','i','nan','ikan'],
+ rule:'Imbuhan apitan ialah awalan dan akhiran yang <b>mengapit</b> kata dasar: <b>ke</b>bersih<b>an</b>, <b>per</b>main<b>an</b>, <b>meny</b>anyi<b>kan</b>, <b>di</b>bersih<b>kan</b>. Merdeka + ke-...-an = kemerdeka<b>an</b> (dua huruf a).',
+ words:[
+ W('ke ber si han','🧼','Jagalah kebersihan kelas.','an','kebersehan','kebersihhan'),
+ W('ke si ha tan','💪','Senaman baik untuk kesihatan.','an','kesiatan','kesihatann'),
+ W('ke mer de ka an','🇲🇾','Kita menyambut Hari Kemerdekaan pada 31 Ogos.','aan','kemerdekan','kemardekaan'),
+ W('ke se la ma tan','🦺','Utamakan keselamatan di jalan raya.','an','keslamatan','keselamatann'),
+ W('per tan di ngan','🏆','Amir menang pertandingan bercerita.','an','pertandinggan','pertadingan'),
+ W('per ma i nan','🎲','Congkak ialah permainan tradisional.','an','permaenan','permainnan'),
+ W('pen di di kan','🎓','Pendidikan sangat penting.','an','pendidekan','pendidikkan'),
+ W('ber sa la man','🤝','Murid-murid bersalaman dengan guru.','an','brsalaman','bersalamman'),
+ W('me nya nyi kan','🎶','Kami menyanyikan lagu Negaraku.','kan','menyanyiikan','menyannyikan'),
+ W('di ber sih kan','🧽','Kelas kami dibersihkan setiap hari.','kan','di bersihkan','dibersikan'),
+ W('ke ce ri a an','🎉','Kelas kami penuh dengan keceriaan.','aan','keceriean','keceriaaan')]},
+
+{id:'kg',year:3,name:'Kata ganda',mode:'join',
+ rule:'Kata ganda ditulis dengan <b>tanda sempang (-)</b>. Jangan gunakan angka 2: tulis <b>rama-rama</b>, bukan rama2 atau rama rama.',
+ words:[
+ W('ka nak - ka nak','🧒','Kanak-kanak bermain di taman.',null,'kanak2','kanak kanak'),
+ W('ra ma - ra ma','🦋','Rama-rama hinggap di atas bunga.',null,'rama2','ramarama'),
+ W('la bah - la bah','🕷️','Labah-labah membuat sarang.',null,'labah labah','labahlabah'),
+ W('bu ku - bu ku','📚','Buku-buku itu disusun di rak.',null,'buku2','buku buku'),
+ W('bu dak - bu dak','👦','Budak-budak itu sedang belajar.',null,'budak2','budak budak'),
+ W('ki ra - ki ra','🧮','Adik belajar kira-kira.',null,'kira2','kira kira'),
+ W('sa yur - ma yur','🥬','Ibu membeli sayur-mayur di pasar.',null,'sayur mayur','sayurmayur'),
+ W('ku ih - mu ih','🍘','Pelbagai kuih-muih dijual di bazar.',null,'kuih muih','kueh-mueh'),
+ W('lauk - pauk','🍲','Lauk-pauk terhidang di atas meja.',null,'lauk pauk','laukpauk'),
+ W('gu nung - ga nang','⛰️','Negara kita mempunyai banyak gunung-ganang.',null,'gunung ganang','gunung-gunang')]},
+
+{id:'km',year:3,name:'Kata majmuk',mode:'join',
+ rule:'Kata majmuk biasanya ditulis <b>terpisah</b>: jalan raya, kereta api. Ada kata majmuk yang sudah <b>mantap</b> dan ditulis rapat: matahari, kerjasama, beritahu, tandatangan, olahraga.',
+ words:[
+ W('ja lan _ ra ya','🛣️','Kereta bergerak laju di jalan raya.',null,'jalanraya','jalan-raya'),
+ W('ka pal _ ter bang','✈️','Kapal terbang itu terbang tinggi.',null,'kapalterbang','kapal-terbang'),
+ W('ke re ta _ a pi','🚆','Kami menaiki kereta api ke Ipoh.',null,'keretapi','kereta-api'),
+ W('bi lik _ dar jah','🏫','Bilik darjah kami bersih dan ceria.',null,'bilikdarjah','bilik-darjah'),
+ W('a lat _ tu lis','🖍️','Bawa alat tulis ke sekolah.',null,'alattulis','alat-tulis'),
+ W('bo la _ se pak','⚽','Abang suka bermain bola sepak.',null,'bolasepak','bola-sepak'),
+ W('a ir _ ter jun','💦','Kami berkelah di air terjun.',null,'airterjun','air-terjun'),
+ W('ma ta ha ri','☀️','Matahari terbit di sebelah timur.',null,'mata hari','mata-hari',2),
+ W('ker ja sa ma','🤝','Kerjasama penting dalam pasukan.',null,'kerja sama','kerja-sama',2),
+ W('be ri ta hu','📢','Tolong beritahu cikgu.',null,'beri tahu','beri-tahu',2),
+ W('tan da ta ngan','✒️','Ayah menurunkan tandatangan pada surat itu.',null,'tanda tangan','tanda-tangan',2),
+ W('o lah ra ga','🏅','Sekolah kami mengadakan kejohanan olahraga.',null,'olah raga','olah-raga',2)]},
+
+{id:'kp',year:3,name:'Kata pinjaman',mode:'rand',
+ rule:'Kata pinjaman ialah perkataan yang diambil daripada bahasa lain dan <b>dieja mengikut sebutan Bahasa Melayu</b>: komputer (bukan computer), teksi, televisyen.',
+ words:[
+ W('te le vi syen','📺','Kami menonton berita di televisyen.',null,'televisen','telivisyen'),
+ W('kom pu ter','💻','Abang menaip di komputer.',null,'computer','kompiuter'),
+ W('tek si','🚕','Nenek menaiki teksi ke pasar.',null,'taksi','texi'),
+ W('po lis','👮','Polis menjaga keselamatan kita.',null,'polisi','pulis'),
+ W('dok tor','🩺','Doktor memeriksa adik.',null,'doktur','dokter'),
+ W('bas','🚌','Saya ke sekolah dengan bas.',null,'bus','bass'),
+ W('sa ins','🔬','Saya suka subjek Sains.',null,'sain','sainz'),
+ W('ais krim','🍦','Adik makan aiskrim coklat.',null,'ais krim','aiskream'),
+ W('ba si kal','🚲','Ali menunggang basikal.',null,'basikel','bisikal'),
+ W('te le fon','📱','Ibu menjawab telefon.',null,'telepon','telifon'),
+ W('pi za','🍕','Kami makan piza bersama keluarga.',null,'pizza','pisa')]}
+];
+
+const ACTS=[
+ {id:'learn',ic:'📖',name:'Belajar',desc:'Lihat, dengar dan sebut',scored:false},
+ {id:'susun',ic:'🧩',name:'Susun suku kata',desc:'Bina perkataan',scored:true},
+ {id:'hilang',ic:'🔍',name:'Cari huruf hilang',desc:'Lengkapkan perkataan',scored:true},
+ {id:'dengar',ic:'👂',name:'Dengar dan eja',desc:'Imlak perkataan',scored:true},
+ {id:'pilih',ic:'✅',name:'Pilih ejaan betul',desc:'Kenal pasti ejaan salah',scored:true}
+];
+
+/* ===================== HELPERS ===================== */
+const $app=document.getElementById('app');
+const toks=w=>w.t.split(' ');
+const word=w=>toks(w).map(t=>t==='_'?' ':t).join('');
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const pick=(a,n)=>shuffle(a).slice(0,n);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const topic=id=>TOPICS.find(t=>t.id===id);
+const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
+
+/* storage (per viewer) */
+let store={year:2,best:{},sound:true};
+try{const s=localStorage.getItem('jomeja-v1');if(s)store=Object.assign(store,JSON.parse(s))}catch(e){}
+const save=()=>{try{localStorage.setItem('jomeja-v1',JSON.stringify(store))}catch(e){}};
+const bestOf=(tid,aid)=>store.best[tid+':'+aid]||0;
+const topicStars=tid=>ACTS.filter(a=>a.scored).reduce((n,a)=>n+bestOf(tid,a.id),0);
+const totalStars=()=>TOPICS.reduce((n,t)=>n+topicStars(t.id),0);
+
+/* speech */
+let voice=null;
+const hasTTS='speechSynthesis' in window;
+function pickVoice(){if(!hasTTS)return;const vs=speechSynthesis.getVoices();
+ voice=vs.find(v=>/^ms/i.test(v.lang))||vs.find(v=>/^id/i.test(v.lang))||null}
+if(hasTTS){pickVoice();speechSynthesis.onvoiceschanged=pickVoice}
+function speak(text,rate=0.8){
+ if(!store.sound||!hasTTS||!text)return;
+ speechSynthesis.cancel();
+ const u=new SpeechSynthesisUtterance(text.replace(/-/g,' '));
+ u.lang=voice?voice.lang:'ms-MY'; if(voice)u.voice=voice; u.rate=rate;
+ speechSynthesis.speak(u);
+}
+/* bunyi */
+let actx=null;
+function tone(ok){
+ if(!store.sound)return;
+ try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();
+  const notes=ok?[660,880]:[300,220];
+  notes.forEach((f,i)=>{const o=actx.createOscillator(),g=actx.createGain();
+   o.type='sine';o.frequency.value=f;o.connect(g);g.connect(actx.destination);
+   const t=actx.currentTime+i*.12;g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.2,t+.02);
+   g.gain.exponentialRampToValueAtTime(.0001,t+.2);o.start(t);o.stop(t+.22)});
+ }catch(e){}
+}
+
+function starsHTML(n,max=3){let s='';for(let i=0;i<max;i++)s+=i<n?'★':'<span class="off">★</span>';return `<span class="stars" aria-label="${n} bintang daripada ${max}">${s}</span>`}
+function sentenceHole(w){
+ const ww=word(w).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+ const re=new RegExp('(?<![\\p{L}-])'+ww+'(?![\\p{L}-])','iu');
+ return re.test(w.s)?esc(w.s).replace(re,'<span class="hole">____</span>'):'';
+}
+function sentenceBold(w){
+ const ww=word(w).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+ const re=new RegExp('(?<![\\p{L}-])('+ww+')(?![\\p{L}-])','iu');
+ return esc(w.s).replace(re,'<b>$1</b>');
+}
+const tileLabel=t=>t==='_'?'␣':t;
+
+/* ===================== STATE ===================== */
+let S={view:'home',tid:null,aid:null,li:0,round:null};
+
+function go(view,extra={}){S=Object.assign(S,{view},extra);render();window.scrollTo({top:0})}
+
+/* ===================== ROUND BUILDERS ===================== */
+function buildItem(t,aid,w,all){
+ const it={w};
+ if(aid==='susun'){
+  const tk=toks(w);
+  const others=all.filter(o=>o!==w).flatMap(toks).filter(x=>x!=='_'&&x!=='-'&&!tk.includes(x));
+  it.tiles=shuffle(tk.concat(pick(others,1)));
+  it.picked=[];
+ }
+ if(aid==='hilang'){
+  const ws=word(w);
+  if(t.mode==='join'){
+   const tk=toks(w);let i=tk.indexOf('-'),sep='-';
+   if(i<0){i=tk.indexOf('_');sep=' '}
+   let L,R;
+   if(i>=0){L=tk.slice(0,i).join('');R=tk.slice(i+1).join('')}
+   else{sep='';L=tk.slice(0,w.j).join('');R=tk.slice(w.j).join('')}
+   it.before=L;it.after=R;it.ans=sep;
+   it.opts=[{v:' ',l:'␣',d:'Jarak'},{v:'-',l:'-',d:'Sempang'},{v:'',l:'⟷',d:'Rapat'}];
+  }else if(t.mode==='f'){
+   const idx=t.pos==='end'?ws.lastIndexOf(w.f):ws.indexOf(w.f);
+   it.before=ws.slice(0,idx);it.after=ws.slice(idx+w.f.length);it.ans=w.f;
+   it.opts=shuffle([w.f].concat(pick(t.opts.filter(o=>o!==w.f),3))).map(v=>({v,l:v}));
+  }else{
+   const idxs=[...ws].map((c,i)=>/[a-z]/.test(c)?i:-1).filter(i=>i>=0);
+   const idx=idxs[Math.floor(Math.random()*idxs.length)];const c=ws[idx];
+   it.before=ws.slice(0,idx);it.after=ws.slice(idx+1);it.ans=c;
+   const pool='abdegiklmnoprstuy'.split('').filter(x=>x!==c);
+   it.opts=shuffle([c].concat(pick(pool,3))).map(v=>({v,l:v}));
+  }
+ }
+ if(aid==='pilih'){it.opts=shuffle([word(w)].concat(w.x))}
+ if(aid==='dengar'){it.typed='';it.hint=false}
+ return it;
+}
+function startRound(tid,aid){
+ const t=topic(tid);
+ const ws=pick(t.words,Math.min(8,t.words.length));
+ S.round={items:ws.map(w=>buildItem(t,aid,w,t.words)),i:0,score:0,done:false,res:null};
+ go('game',{tid,aid});
+ setTimeout(()=>autoSpeak(),300);
+}
+function autoSpeak(){const r=S.round;if(!r)return;const it=r.items[r.i];
+ if(S.aid==='dengar')speak(word(it.w))}
+
+/* ===================== RENDER ===================== */
+function header(){
+ return `<div class="top">
+  <button class="brand" data-act="home" aria-label="Jom Eja, ke halaman utama">
+   <span class="blk">Jom</span><span class="blk">E</span><span class="blk">ja</span><span class="bang">!</span>
+  </button>
+  <div class="tools">
+   <span class="pill" title="Jumlah bintang">⭐ ${totalStars()}</span>
+   <button class="pill" data-act="sound" aria-pressed="${store.sound}">${store.sound?'🔊 Bunyi':'🔇 Senyap'}</button>
+  </div></div>`;
+}
+
+function vHome(){
+ const list=TOPICS.filter(t=>t.year===store.year);
+ return header()+`<div class="sheet">
+  <h1>Latihan ejaan Bahasa Melayu</h1>
+  <p class="muted">Untuk murid Tahun 2 dan Tahun 3. Pilih tahun, kemudian pilih topik.</p>
+  <div class="years" role="group" aria-label="Pilih tahun">
+   <button data-act="year" data-y="2" aria-pressed="${store.year===2}">Tahun 2</button>
+   <button data-act="year" data-y="3" aria-pressed="${store.year===3}">Tahun 3</button>
+  </div>
+  <div class="topics">${list.map(t=>{
+   const eg=t.words.slice(0,2).map(w=>toks(w).filter(x=>x!=='_').map((x,i)=>`<span class="mini c${i%4}">${esc(x==='-'?'-':x)}</span>`).join('')).join('<span style="width:8px"></span>');
+   return `<button class="topic" data-act="topic" data-t="${t.id}">
+    <span class="name">${esc(t.name)}</span>
+    <span class="eg">${eg}</span>
+    ${starsHTML(topicStars(t.id),12).replace('class="stars"','class="stars" style="font-size:14px;letter-spacing:1px"')}
+   </button>`}).join('')}</div>
+  </div>
+  <p class="note">Topik disusun berdasarkan kemahiran ejaan Bahasa Melayu KSSR (Semakan) Tahun 2 dan 3. Bintang disimpan dalam pelayar peranti ini sahaja.</p>`;
+}
+
+function vTopic(){
+ const t=topic(S.tid);
+ return header()+`<div class="sheet">
+  <button class="back" data-act="home">‹ Semua topik</button>
+  <h1>${esc(t.name)}</h1>
+  <div class="rule">💡 ${t.rule}</div>
+  <h2>Pilih aktiviti</h2>
+  <div class="acts">${ACTS.map(a=>`<button class="act" data-act="act" data-a="${a.id}">
+   <span class="ic" aria-hidden="true">${a.ic}</span>
+   <span><b>${a.id==='hilang'&&t.mode==='join'?'Jarak atau sempang?':a.name}</b><small>${a.id==='hilang'&&t.mode==='join'?'Cara menulis perkataan':a.desc}</small>
+   ${a.scored?'<br>'+starsHTML(bestOf(t.id,a.id)):''}</span></button>`).join('')}</div>
+ </div>`;
+}
+
+function vLearn(){
+ const t=topic(S.tid),w=t.words[S.li],tk=toks(w);
+ let ci=0;
+ const blocks=tk.map(x=>{
+  if(x==='_')return `<span class="blk syl sep" aria-label="jarak">␣</span>`;
+  if(x==='-')return `<span class="blk syl sep" aria-label="sempang">-</span>`;
+  return `<button class="blk syl c${(ci++)%4}" data-act="saysyl" data-s="${esc(x)}">${esc(x)}</button>`}).join('');
+ return header()+`<div class="sheet">
+  <button class="back" data-act="topic" data-t="${t.id}">‹ ${esc(t.name)}</button>
+  <div class="bar"><div class="track"><div class="fill" style="width:${(S.li+1)/t.words.length*100}%"></div></div>
+   <span class="count">${S.li+1} / ${t.words.length}</span></div>
+  <div class="q">
+   <div class="emo" aria-hidden="true">${w.e}</div>
+   <div class="big">${esc(word(w))}</div>
+   <p class="prompt muted" style="font-weight:400;font-size:16px">Tekan setiap suku kata untuk mendengar bunyinya.</p>
+   <div class="syls">${blocks}</div>
+   <p class="sentence" style="color:var(--ink)">${sentenceBold(w)}</p>
+   <div class="row">
+    <button class="say" data-act="sayword">🔊 Dengar perkataan</button>
+    <button class="say alt" data-act="saysent">🗨️ Dengar ayat</button>
+   </div>
+   <p class="nope">Jangan tulis: ${w.x.map(x=>`<s>${esc(x)}</s>`).join(' , ')}</p>
+   <div class="row" style="margin-top:8px">
+    <button class="go ghost" data-act="lprev" ${S.li===0?'disabled style="opacity:.4"':''}>‹ Sebelum</button>
+    ${S.li<t.words.length-1?`<button class="go" data-act="lnext">Seterusnya ›</button>`
+      :`<button class="go" data-act="topic" data-t="${t.id}">Selesai, pilih latihan</button>`}
+   </div>
+  </div></div>`;
+}
+
+function feedback(it){
+ if(!it.res)return '';
+ const w=word(it.w);
+ if(it.res.ok)return `<div class="fb ok" role="status"><div class="h">Betul! 🎉</div><div class="ans">${esc(w)}</div>${nextBtn()}</div>`;
+ let extra='';
+ if(S.aid==='dengar'){
+  const u=it.res.typed||'(kosong)';
+  extra=`<p style="margin:6px auto 0">Jawapan kamu: <span class="diff">${[...u].map((c,i)=>`<span class="${c!==w[i]?'x':''}">${esc(c)}</span>`).join('')}</span></p>`;
+ }
+ return `<div class="fb no" role="status"><div class="h">Hampir! Ejaan yang betul:</div><div class="ans">${esc(w)}</div>${extra}${nextBtn()}</div>`;
+}
+const nextBtn=()=>`<button class="go" data-act="next" id="nextbtn">${S.round.i<S.round.items.length-1?'Soalan seterusnya ›':'Lihat keputusan'}</button>`;
+
+function vGame(){
+ const t=topic(S.tid),r=S.round,it=r.items[r.i],w=it.w,act=ACTS.find(a=>a.id===S.aid);
+ const head=`<button class="back" data-act="topic" data-t="${t.id}">‹ ${esc(t.name)}</button>
+  <div class="bar"><div class="track"><div class="fill" style="width:${(r.i)/r.items.length*100}%"></div></div>
+  <span class="count">Soalan ${r.i+1} / ${r.items.length} · ⭐ ${r.score}</span></div>`;
+ let body='';
+ const answered=!!it.res;
+
+ if(S.aid==='susun'){
+  const n=toks(w).length;
+  let slots='';
+  for(let k=0;k<n;k++){
+   const pi=it.picked[k];
+   slots+= pi!==undefined
+    ?`<button class="blk syl c${k%4} ${it.tiles[pi]==='_'||it.tiles[pi]==='-'?'sep':''}" data-act="unpick" data-k="${k}" ${answered?'disabled':''} aria-label="Buang ${esc(it.tiles[pi])}">${esc(tileLabel(it.tiles[pi]))}</button>`
+    :`<span class="slot" aria-hidden="true"></span>`;
+  }
+  body=`<div class="emo" aria-hidden="true">${w.e}</div>
+   <p class="prompt">Susun suku kata untuk membina perkataan.</p>
+   ${sentenceHole(w)?`<p class="sentence">${sentenceHole(w)}</p>`:''}
+   <button class="say alt" data-act="sayword">🔊 Dengar</button>
+   <div class="slots">${slots}</div>
+   <div class="tiles">${it.tiles.map((x,k)=>`<button class="blk syl tile c${k%4} ${x==='_'||x==='-'?'sep':''}" data-act="pick" data-k="${k}" ${it.picked.includes(k)||answered?'disabled':''}>${esc(tileLabel(x))}</button>`).join('')}</div>
+   ${toks(w).includes('_')?'<p class="nope">␣ bermaksud jarak antara dua perkataan.</p>':''}`;
+ }
+
+ if(S.aid==='hilang'){
+  const filled=answered?(it.res.ok?it.ans:it.res.pickedV):null;
+  const gapTxt=answered?(it.ans===' '?'␣':it.ans===''?'⟷':it.ans):'?';
+  body=`<div class="emo" aria-hidden="true">${w.e}</div>
+   <p class="prompt">${t.mode==='join'?'Bagaimanakah perkataan ini ditulis?':'Pilih huruf yang hilang.'}</p>
+   <div class="big">${esc(it.before)}<span class="gapbox ${answered?'filled':''}">${esc(gapTxt)}</span>${esc(it.after)}</div>
+   ${sentenceHole(w)?`<p class="sentence" style="margin-top:10px">${sentenceHole(w)}</p>`:''}
+   <button class="say alt" data-act="sayword">🔊 Dengar</button>
+   <div class="opts">${it.opts.map((o,k)=>{
+    let cls='';if(answered){if(o.v===it.ans)cls='right';else if(o.v===it.res.pickedV)cls='wrong'}
+    return `<button class="opt ${cls}" data-act="hpick" data-k="${k}" ${answered?'disabled':''}>${esc(o.l)}${o.d?`<small>${o.d}</small>`:''}</button>`}).join('')}</div>`;
+ }
+
+ if(S.aid==='dengar'){
+  const hole=sentenceHole(w);
+  body=`<p class="prompt">Dengar, kemudian taip perkataan itu.</p>
+   ${hasTTS?`<div class="row">
+     <button class="say" data-act="sayword">🔊 Dengar</button>
+     <button class="say alt" data-act="sayslow">🐢 Perlahan</button>
+     <button class="say alt" data-act="saysent">🗨️ Ayat</button></div>`
+    :`<p class="nope">Pelayar ini tidak boleh membunyikan perkataan. Guru atau ibu bapa boleh membacakan ayat di bawah.</p>`}
+   ${it.hint||!hasTTS?`<div class="emo" aria-hidden="true">${w.e}</div>`:''}
+   ${hole?`<p class="sentence" style="margin-top:12px">${hole}</p>`:''}
+   <input class="typein" id="typein" type="text" inputmode="text" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false"
+     aria-label="Taip ejaan" value="${esc(it.typed)}" ${answered?'disabled':''} placeholder="taip di sini">
+   ${answered?'':`<div class="row">
+     <button class="go" data-act="check">Semak</button>
+     ${it.hint?`<span class="muted">${toks(w).filter(x=>x!=='_'&&x!=='-').length} suku kata, bermula dengan "${esc(toks(w)[0])}"</span>`
+       :`<button class="go ghost" data-act="hint">💡 Petunjuk</button>`}</div>`}`;
+ }
+
+ if(S.aid==='pilih'){
+  body=`<div class="emo" aria-hidden="true">${w.e}</div>
+   <p class="prompt">Pilih ejaan yang betul.</p>
+   ${sentenceHole(w)?`<p class="sentence">${sentenceHole(w)}</p>`:''}
+   <div class="opts">${it.opts.map((o,k)=>{
+    let cls='';if(answered){if(o===word(w))cls='right';else if(o===it.res.picked)cls='wrong'}
+    return `<button class="opt ${cls}" data-act="ppick" data-k="${k}" ${answered?'disabled':''}>${esc(o)}</button>`}).join('')}</div>`;
+ }
+
+ return header()+`<div class="sheet">${head}<div class="q">${body}${feedback(it)}</div></div>`;
+}
+
+function vResult(){
+ const t=topic(S.tid),r=S.round,pct=r.score/r.items.length;
+ const st=pct>=.9?3:pct>=.6?2:r.score>0?1:0;
+ const msg=st===3?'Hebat! Ejaan kamu cemerlang.':st===2?'Bagus! Sedikit lagi untuk tiga bintang.':st===1?'Usaha yang baik. Cuba sekali lagi.':'Jangan putus asa. Baca semula di bahagian Belajar.';
+ return header()+`<div class="sheet"><div class="result">
+  <button class="back" data-act="topic" data-t="${t.id}">‹ ${esc(t.name)}</button>
+  <div>${starsHTML(st)}</div>
+  <h1>${msg}</h1>
+  <p class="muted" style="margin:0 auto">Kamu betul ${r.score} daripada ${r.items.length} soalan.</p>
+  <div class="row">
+   <button class="go" data-act="act" data-a="${S.aid}">Main lagi</button>
+   <button class="go ghost" data-act="topic" data-t="${t.id}">Pilih aktiviti lain</button>
+  </div></div></div>`;
+}
+
+function render(){
+ const v={home:vHome,topic:vTopic,learn:vLearn,game:vGame,result:vResult}[S.view];
+ $app.innerHTML=v();
+ const inp=document.getElementById('typein');
+ if(inp&&!inp.disabled){inp.focus({preventScroll:true});inp.setSelectionRange(inp.value.length,inp.value.length)}
+ const nb=document.getElementById('nextbtn');if(nb)nb.focus({preventScroll:true});
+}
+
+/* ===================== ACTIONS ===================== */
+function answer(ok,extra){
+ const r=S.round,it=r.items[r.i];
+ it.res=Object.assign({ok},extra);
+ if(ok)r.score++;
+ tone(ok);
+ setTimeout(()=>speak(word(it.w)),250);
+ render();
+}
+function confetti(){
+ const box=document.getElementById('confetti');box.innerHTML='';
+ const em=['⭐','🎉','✨','🌟','🎈'];
+ for(let i=0;i<28;i++){const s=document.createElement('span');s.textContent=em[i%em.length];
+  s.style.left=Math.random()*100+'vw';s.style.animationDelay=(Math.random()*.6)+'s';box.appendChild(s)}
+ setTimeout(()=>box.innerHTML='',3400);
+}
+
+document.addEventListener('click',e=>{
+ const b=e.target.closest('[data-act]');if(!b||b.disabled)return;
+ const a=b.dataset.act,r=S.round,it=r&&r.items[r.i];
+ const curW=S.view==='learn'?topic(S.tid).words[S.li]:it&&it.w;
+ switch(a){
+  case 'home':go('home');break;
+  case 'sound':store.sound=!store.sound;save();if(!store.sound&&hasTTS)speechSynthesis.cancel();render();break;
+  case 'year':store.year=+b.dataset.y;save();render();break;
+  case 'topic':go('topic',{tid:b.dataset.t});break;
+  case 'act':
+   if(b.dataset.a==='learn'){go('learn',{aid:'learn',li:0});setTimeout(()=>speak(word(topic(S.tid).words[0])),250)}
+   else startRound(S.tid,b.dataset.a);break;
+  case 'lnext':S.li++;render();speak(word(topic(S.tid).words[S.li]));break;
+  case 'lprev':S.li--;render();speak(word(topic(S.tid).words[S.li]));break;
+  case 'saysyl':speak(b.dataset.s,.7);break;
+  case 'sayword':speak(word(curW));break;
+  case 'sayslow':speak(word(curW),.5);break;
+  case 'saysent':speak(curW.s,.85);break;
+  case 'pick':{
+   const k=+b.dataset.k;const x=it.tiles[k];if(x!=='_'&&x!=='-')speak(x,.7);
+   it.picked.push(k);
+   if(it.picked.length===toks(it.w).length){
+    const built=it.picked.map(i=>it.tiles[i]).map(t=>t==='_'?' ':t).join('');
+    answer(built===word(it.w));
+   }else render();
+   break;}
+  case 'unpick':it.picked.splice(+b.dataset.k,1);render();break;
+  case 'hpick':{const o=it.opts[+b.dataset.k];answer(o.v===it.ans,{pickedV:o.v});break;}
+  case 'ppick':{const o=it.opts[+b.dataset.k];answer(o===word(it.w),{picked:o});break;}
+  case 'hint':it.hint=true;it.typed=(document.getElementById('typein')||{}).value||'';render();break;
+  case 'check':checkTyped();break;
+  case 'next':
+   if(r.i<r.items.length-1){r.i++;render();autoSpeak()}
+   else{
+    const pct=r.score/r.items.length,st=pct>=.9?3:pct>=.6?2:r.score>0?1:0;
+    const key=S.tid+':'+S.aid;if(st>(store.best[key]||0)){store.best[key]=st;save()}
+    go('result');if(st>=2)confetti();
+   }
+   break;
+ }
+});
+function checkTyped(){
+ const inp=document.getElementById('typein');if(!inp)return;
+ const r=S.round,it=r.items[r.i];
+ const v=inp.value.trim().toLowerCase().replace(/\s+/g,' ').replace(/\s*-\s*/g,'-');
+ it.typed=inp.value;
+ answer(v===word(it.w),{typed:v});
+}
+document.addEventListener('keydown',e=>{
+ if(e.key==='Enter'&&e.target.id==='typein'){e.preventDefault();checkTyped()}
+});
+document.addEventListener('input',e=>{
+ if(e.target.id==='typein'&&S.round){S.round.items[S.round.i].typed=e.target.value}
+});
+
+render();
+</script>
+</body>
+</html>
